@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlantsTable extends Migration
+class CreatePlantsCountriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePlantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plants', function (Blueprint $table) {
+        Schema::create('plants_countries', function (Blueprint $table) {
             $table->id();
-            $table->string('plant');
-            $table->string('description');
-            $table->foreignId('family')->constrained('families');
+            $table->foreignId('id_plant')->constrained('plants');
+            $table->foreignId('id_country')->constrained('countries');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePlantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plants');
+        Schema::dropIfExists('plants_countries');
     }
 }

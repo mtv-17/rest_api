@@ -9,6 +9,9 @@ class family extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'family'
+    ];
     public function plants()
     {
         return $this->hasMany(plants::class);

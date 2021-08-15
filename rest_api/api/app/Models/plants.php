@@ -9,18 +9,23 @@ class plants extends Model
 {
     use HasFactory;
 
+//    protected $casts = [
+//      'country'  => 'array'
+//    ];
     protected $fillable = [
         'plant','family', 'description'
     ];
+
 
     public function family()
     {
         return $this->belongsTo(family::class);
     }
 
-    public function countries()
+    public function country()
     {
-        return $this->belongsToMany(country::class,
-            'plants_country');
+        return $this->belongsToMany(country::class);
     }
+
+
 }
